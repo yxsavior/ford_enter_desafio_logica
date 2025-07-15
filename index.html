@@ -193,7 +193,7 @@
                 while (
                     isNaN(numeroFloat.replace(',', '.')) ||
                     numeroFloat.trim() === "" ||
-                    numeroFloat.replace(',','.') <= 0
+                    parseFloat(numeroFloat.replace(',','.')) <= 0
                 ) {
                     numeroFloat = prompt(`Digite um número válido! ${pergunta}`);
                     }
