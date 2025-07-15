@@ -188,30 +188,29 @@
         }
 
         function mostrarResultados(){
-        
             function digiteNovamenteFloat(pergunta) {
-                let quantidadeFloat = prompt(pergunta);
+                let numeroFloat = prompt(pergunta);
                 while (
-                    isNaN(quantidadeFloat.replace(',', '.')) ||
-                    quantidadeFloat.trim() === "" ||
-                    quantidadeFloat <= 0
+                    isNaN(numeroFloat.replace(',', '.')) ||
+                    numeroFloat.trim() === "" ||
+                    numeroFloat.replace(',','.') <= 0
                 ) {
-                    quantidadeFloat = prompt(`Digite um número válido! ${pergunta}`);
+                    numeroFloat = prompt(`Digite um número válido! ${pergunta}`);
                     }
-                    return parseFloat(quantidadeFloat.replace(',','.'));
+                    return parseFloat(numeroFloat.replace(',','.'));
                 }
 
                 function digiteNovamenteInt(pergunta) {
-                    let quantidadeInteiros = prompt(pergunta);
+                    let numeroInteiro = prompt(pergunta);
                     while (
-                    isNaN(quantidadeInteiros) ||
-                    quantidadeInteiros.trim() === "" ||
-                    quantidadeInteiros <= 0 ||
-                    quantidadeInteiros % 1 != 0
+                    isNaN(numeroInteiro) ||
+                    numeroInteiro.trim() === "" ||
+                    numeroInteiro <= 0 ||
+                    numeroInteiro % 1 != 0
                     ) {
-                    quantidadeInteiros = prompt(`Digite um número inteiro positivo! ${pergunta}`);
+                    numeroInteiro = prompt(`Digite um número inteiro positivo! ${pergunta}`);
                     }
-                    return parseInt(quantidadeInteiros);
+                    return parseInt(numeroInteiro);
                 }
 
                 let distanciaPercorrida = digiteNovamenteFloat("Qual a distância percorrida da sua casa até seu trabalho (em km)?");
