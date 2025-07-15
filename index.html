@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Landing Page Ford</title>
+  <style>
+  @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    section
+    {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        padding: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+    }
+    header
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header .logo
+    {
+        position: relative;
+        max-width: 80px;
+    }
+    header ul
+    {
+        position: relative;
+        display: flex;
+    }
+    header ul li
+    {
+        list-style: none;
+    }
+    header ul li a
+    {
+        display: inline-bloco;
+        color: #333;
+        font-weight: 400;
+        margin-left: 40px;
+        text-decoration: none;
+    }
+    .content
+    {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .content .textBox
+    {
+        position: relative;
+        max-width: 600px;
+    }
+    .content .textBox h2
+    {
+        color: #333;
+        font-size: 3.5em;
+        line-height: 1.4em;
+        font-weight: 500;
+    }
+    .content .textBox h2 span
+    {
+        color: rgb(0, 18, 117);
+        font-size: 1em;
+        font-weight: 700;
+    }
+    .content .textBox p
+    {
+        color: #333;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .content .textBox a
+    {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 8px 20px;
+        background: #1351d8;
+        color: #fff;
+        border-radius: 40px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-decoration: none;
+    }
+    .content .imgBox
+    {
+        width: 700px;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: -100px;
+        margin-top: 50px;
+    }
+    .content .imgBox img
+    {
+        max-width: 420px;
+    }
+    .thumb
+    {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        display: flex;
+    }
+    .thumb li
+    {
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .thumb li:hover
+    {
+        transform: translateY(-15px);
+    }
+    .thumb li img
+    {
+        max-width: 60px;
+    }
+    .circle
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 190%;
+        background: #1351d8;
+        clip-path: circle(300px at right 400px);
+    }
+  </style>
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="#" class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Ford-Motor-Company-Logo.png" width="90" height="auto"></a>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Economize mais</a></li>
+                <li><a href="#">Sobre a Ford</a></li>
+                <li><a href="#">Fale conosco</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2 id="tituloPrincipal">Mais<span> controle</span><br>menos<span> gastos</span></h2>
+                <p id="descricao">Nosso objetivo é ajudar você a tomar decisões mais conscientes e econômicas. Use esses dados para planejar melhor seus deslocamentos e economizar no abastecimento.</p>
+                <a href="#" onclick="mostrarResultados()">Faça uma análise grátis</a>
+            </div>
+            <div class="imgBox">
+                <img src="img1.png" class="ford">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li><img src="img1.png" width="100" height="auto" onclick="imgSlider('img1.png');changeCircleColor('#008B8B')"></li>
+            <li><img src="img2.png" width="100" height="auto" onclick="imgSlider('img2.png');changeCircleColor('#D4AF37')"></li>
+            <li><img src="img3.png" width="100" height="auto" onclick="imgSlider('img3.png');changeCircleColor('#9A1B1F')"></li>
+        </ul>
+    </section>
+
+    <script type="text/javascript">
+        function imgSlider(anything) {
+            document.querySelector('.ford').src = anything;
+        }
+
+        function changeCircleColor(color) {
+            const circle = document.querySelector( '.circle');
+            circle.style.background = color;
+        }
+
+        function mostrarResultados(){
+        
+            function digiteNovamenteFloat(pergunta) {
+                let quantidadeFloat = prompt(pergunta);
+                while (
+                    isNaN(quantidadeFloat.replace(',', '.')) ||
+                    quantidadeFloat.trim() === "" ||
+                    quantidadeFloat <= 0
+                ) {
+                    quantidadeFloat = prompt(`Digite um número válido! ${pergunta}`);
+                    }
+                    return parseFloat(quantidadeFloat.replace(',','.'));
+                }
+
+                function digiteNovamenteInt(pergunta) {
+                    let quantidadeInteiros = prompt(pergunta);
+                    while (
+                    isNaN(quantidadeInteiros) ||
+                    quantidadeInteiros.trim() === "" ||
+                    quantidadeInteiros <= 0 ||
+                    quantidadeInteiros % 1 != 0
+                    ) {
+                    quantidadeInteiros = prompt(`Digite um número inteiro positivo! ${pergunta}`);
+                    }
+                    return parseInt(quantidadeInteiros);
+                }
+
+                let distanciaPercorrida = digiteNovamenteFloat("Qual a distância percorrida da sua casa até seu trabalho (em km)?");
+                let consumoMedio = digiteNovamenteFloat("Qual o consumo médio do seu veículo (em km/L)?");
+                    
+                var consumoNecessarioLitros = distanciaPercorrida/consumoMedio;
+                
+                let palavraLitros = consumoNecessarioLitros > 1 ? 'litros' : 'litro';
+                    
+                let quantidadePostos = digiteNovamenteInt("Em quantos postos você pesquisou?");
+
+                let menorValor = digiteNovamenteFloat(`Digite o valor encontrado (em R$) no posto 1:`);
+                let somaTotalValoresPesquisados = menorValor;
+
+                for(let i=2;i<=quantidadePostos;i++){
+                    let novoValorEncontrado = digiteNovamenteFloat(`Digite o valor encontrado (em R$) no posto ${i}:`);
+                    somaTotalValoresPesquisados += novoValorEncontrado;
+
+                    if (menorValor > novoValorEncontrado){
+                    menorValor = novoValorEncontrado;
+                    }        
+                }
+
+                let media = somaTotalValoresPesquisados/quantidadePostos;
+                let gastoDiario = 2*(consumoNecessarioLitros*menorValor);
+                
+                document.getElementById("tituloPrincipal").innerHTML = "Resumo da sua simulação:";
+
+                document.getElementById("descricao").innerHTML =
+                `<p>O consumo necessário é ${consumoNecessarioLitros.toFixed(2).replace('.',',')} ${palavraLitros}</p>` + "<br>" +
+                `<p>O menor valor pesquisado é R$${menorValor.toFixed(2).replace('.',',')}</p>` + "<br>" +
+                `<p>A média dos valores pesquisados é R$${media.toFixed(2).replace('.',',')}</p>` + "<br>" +
+                `<p>O gasto diário (ida e volta) é R$${gastoDiario.toFixed(2).replace('.',',')}</p>`;
+                
+            }
+    </script>
+</body>
+</html>
